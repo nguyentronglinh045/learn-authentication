@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentication with JWT</title>
+</head>
+<body>
+  <form id="login-form">
+    <div class="">
+      <label for="user-name">User Name</label>
+      <input type="text" id="user-name" value="sangsao@gmail.com" >
+    </div>
+    <div class="">
+      <label for="password">password</label>
+      <input type="text" id="password" value="sangsao" >
+    </div>
+    <button id="btn-login">Login</button>
+  </form>
+  <button id="btn-refresh-token">Refresh Token</button>
+  <button id="btn-get-profile">Get Profile</button>
+  <button id="btn-get-products">Get Products</button>
+  <button id="btn-get-both">Get Profile and products</button>
+
+  
+  <script src="cdnjs.cloudflare.com_ajax_libs_axios_1.4.0_axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
