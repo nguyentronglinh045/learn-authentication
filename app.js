@@ -25,7 +25,7 @@ class Http {
     this.instance.interceptors.response.use(
       (config) => config.data,
       (error) => {
-        if (error.response.status === 401 && error.response.data.data.name === 'EXPIRED_TOKEN') {
+        if (error.response.config.url !== 'refresh-access-token' && error.response.status === 401 && error.response.data.data.name === 'EXPIRED_TOKEN') {
           console.log('error when refreshing token', error)
           this.refreshTokenRequest = this.refreshTokenRequest
             ? this.refreshTokenRequest
@@ -36,7 +36,7 @@ class Http {
 
           return this.refreshTokenRequest
             .then((access_token) => {
-              error.response.config.headers.AccessToken = access_token
+              error.response.config.headers.Authorization = access_token
               return this.instance(error.response.config)
             })
             .catch((refreshTokenerror) => {
